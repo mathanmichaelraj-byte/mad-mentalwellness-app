@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "mental_wellness"
 include(":app")
+ 
