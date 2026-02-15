@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">mental_wellness</string>
+    <string name="hello_mentals">Hello Mentals!</string>
 </resources>
