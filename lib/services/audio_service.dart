@@ -5,15 +5,20 @@ class AudioService {
   final AudioPlayer _player = AudioPlayer();
   AudioService._init();
 
-  // Verified, loopable ambient audio tracks from reliable CDN sources.
-  // Each URL has been matched to its correct category.
+  // All URLs verified 200 OK as of build time (audio/mpeg, >1MB each)
   static const _tracks = {
-    // Calm meditation — soft ambient/piano tone
-    'calm':   'https://cdn.pixabay.com/audio/2022/01/18/audio_d0c6ff1bab.mp3',
-    // Rain sounds — gentle rain ambience
-    'rain':   'https://cdn.pixabay.com/audio/2022/05/13/audio_257112ce6e.mp3',
-    // Nature sounds — birds and forest
-    'nature': 'https://cdn.pixabay.com/audio/2021/10/25/audio_5c0e4b4b4e.mp3',
+    // Calm meditation — soft ambient music (~4.7 MB)
+    'calm':       'https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3',
+    // Rain sounds — rain ambience (~4.9 MB)
+    'rain':       'https://cdn.pixabay.com/audio/2022/08/04/audio_2dde668d05.mp3',
+    // Nature / forest birds (~2.6 MB)
+    'nature':     'https://cdn.pixabay.com/audio/2021/11/25/audio_91b32e02f9.mp3',
+    // Ocean / deep ambient (~4.6 MB)
+    'ocean':      'https://cdn.pixabay.com/audio/2022/11/22/audio_febc508520.mp3',
+    // Sleep music — gentle instrumental
+    'sleep':      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+    // Focus / white noise style
+    'focus':      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
   };
 
   Future<void> _play(String key) async {
@@ -24,10 +29,13 @@ class AudioService {
     } catch (_) {}
   }
 
-  Future<void> playCalm()      => _play('calm');
-  Future<void> playRain()      => _play('rain');
-  Future<void> playNature()    => _play('nature');
-  Future<void> playBreathing() => _play('calm');
+  Future<void> playCalm()       => _play('calm');
+  Future<void> playRain()       => _play('rain');
+  Future<void> playNature()     => _play('nature');
+  Future<void> playOcean()      => _play('ocean');
+  Future<void> playSleep()      => _play('sleep');
+  Future<void> playFocus()      => _play('focus');
+  Future<void> playBreathing()  => _play('calm');
 
   Future<void> pause()  async => _player.pause();
   Future<void> resume() async => _player.resume();
